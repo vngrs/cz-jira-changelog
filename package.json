@@ -1,19 +1,20 @@
 {
-  "name": "cz-jira-changelog",
-  "version": "1.0.1",
-  "description": "Commitizen adapter following the conventional-changelog and jira's smart commits format.",
+  "name": "cz-jira-link-changelog",
+  "version": "1.0.0",
+  "description": "This is a modefied version of cz-jira-changelog, it includes jira ticket url in the comment messages.",
   "main": "index.js",
   "scripts": {
     "commit": "git-cz",
     "test": "echo 'Tests need to be setup!'",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
-  "homepage": "https://github.com/onrewind/cz-jira-changelog",
+  "homepage": "https://github.com/vngrs/cz-jira-link-changelog",
   "repository": {
     "type": "git",
-    "url": "https://github.com/onrewind/cz-jira-changelog.git"
+    "url": "git+https://github.com/vngrs/cz-jira-link-changelog.git"
   },
   "license": "MIT",
+  "author": "Besir Turkoglu",
   "dependencies": {
     "conventional-commit-types": "^2.0.0",
     "lodash.map": "^4.5.1",

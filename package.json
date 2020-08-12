@@ -1,6 +1,6 @@
 {
   "name": "cz-jira-link-changelog",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "This is a modefied version of cz-jira-changelog, it includes jira ticket url in the comment messages.",
   "main": "index.js",
   "scripts": {

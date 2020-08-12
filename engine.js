@@ -146,11 +146,20 @@ module.exports = function (options) {
         var scope = answers.scope.trim();
         scope = scope ? "(" + answers.scope.trim() + ")" : "";
 
+        var issueURL = answers.issueURL
+          ? wrap(answers.issueURL, wrapOptions)
+          : "";
+
         // Hard limit this line
-        var head = (answers.type + scope + ": " + answers.subject.trim()).slice(
-          0,
-          maxLineWidth
-        );
+        var head = (
+          answers.type +
+          scope +
+          ": " +
+          answers.subject.trim() +
+          " [" +
+          issueURL +
+          "]"
+        ).slice(0, maxLineWidth);
 
         // Wrap these lines at 100 characters
         var body = wrap(answers.body, wrapOptions);
@@ -163,18 +172,13 @@ module.exports = function (options) {
         breaking = wrap(breaking, wrapOptions);
 
         var issues = answers.issues ? wrap(answers.issues, wrapOptions) : "";
-        var issueURL = answers.issueURL
-          ? wrap(answers.issueURL, wrapOptions)
-          : "";
 
         var workflow = answers.workflow ? "#" + answers.workflow : undefined;
         var time = answers.time ? "#time " + answers.time : undefined;
         var comment = answers.comment
           ? "#comment " + answers.comment
           : undefined;
-        var footer = filter([issues, issueURL, time, workflow, comment]).join(
-          " "
-        );
+        var footer = filter([issues, time, workflow, comment]).join(" ");
 
         commit(head + "\n\n" + body + "\n\n" + breaking + "\n\n" + footer);
       });
